@@ -17,7 +17,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('auth.login');
+        // return view('auth.login');
+        return redirect()->route('home')->with('message', 'login');
     }
 
     /**
@@ -32,7 +33,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // return redirect()->intended(RouteServiceProvider::HOME);
+        // return redirect()->intended(RouteServiceProvider::ROOT);
+        return redirect()->back();
     }
 
     /**
