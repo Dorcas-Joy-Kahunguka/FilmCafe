@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
-<!-- moviegridfw07:38-->
+<!-- moviesingle07:38-->
 
 <head>
 
     <!-- Basic need -->
-    <title>Library</title>
+    <title>Watch</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -27,36 +27,7 @@
 
 </head>
 
-<body>
-
-    <script type="text/javascript">
-    var signup_error = '';
-    var login_error = '';
-    var upload_error = '';
-    </script>
-
-    @if ($errors->any())
-
-    @if ($errors->has('username_signup') || $errors->has('email_signup') || $errors->has('password_signup') ||
-    $errors->has('password_confirmation'))
-    <script type="text/javascript">
-    signup_error = <?php echo json_encode($errors->all()); ?>; {};
-    </script>
-    @endif
-
-    @if ($errors->has('email') || $errors->has('password'))
-    <script type="text/javascript">
-    login_error = <?php echo json_encode($errors->all()); ?>; {};
-    </script>
-    @endif
-
-    @if ($errors->has('title') || $errors->has('description') || $errors->has('genre') || $errors->has('file'))
-    <script type="text/javascript">
-    upload_error = <?php echo json_encode($errors->all()); ?>; {};
-    </script>
-    @endif
-
-    @endif
+<body class="watch-page">
 
     <!--preloading-->
     <div id="preloader">
@@ -74,7 +45,6 @@
         <div class="login-content">
 
             <a href="#" class="close">x</a>
-
             <h3>Login</h3>
 
             <form method="POST" action="{{ route('login') }}">
@@ -85,8 +55,6 @@
 
                     <label for="email">
                         Email:
-                        <!-- <input type="text" name="username" id="username" placeholder="Hugh Jackman"
-                            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" /> -->
                         <input type="text" name="email" id="email" placeholder="hugh@jackman.com"
                             value="{{old('email')}}" required />
                     </label>
@@ -103,9 +71,6 @@
 
                     <label for="password">
                         Password:
-                        <!-- <input type="password" name="password" id="password" placeholder="******"
-                            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                            required="required" /> -->
                         <input type="password" name="password" id="password" placeholder="******" required />
                     </label>
 
@@ -127,7 +92,6 @@
                             Forget password ?
                         </a>
                         @endif
-                        <!-- <a href="#">Forget password ?</a> -->
                     </div>
                 </div>
 
@@ -168,8 +132,6 @@
 
                     <label for="username-2">
                         Username:
-                        <!-- <input type="text" name="username" id="username-2" placeholder="Hugh Jackman"
-                            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" /> -->
                         <input type="text" name="username_signup" id="username-2" placeholder="Hugh Jackman"
                             value="{{old('username_signup')}}" required />
                     </label>
@@ -187,9 +149,6 @@
 
                     <label for="email-2">
                         your email:
-                        <!-- <input type="email" name="email" id="email-2" placeholder=""
-                            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                            required="required" /> -->
                         <input type="email" name="email_signup" id="email-2" placeholder=""
                             value="{{old('email_signup')}}" required />
                     </label>
@@ -207,9 +166,6 @@
 
                     <label for="password-2">
                         Password:
-                        <!-- <input type="password" name="password" id="password-2" placeholder=""
-                            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                            required="required" /> -->
                         <input type="password" name="password_signup" id="password-2" required />
                     </label>
 
@@ -226,9 +182,6 @@
 
                     <label for="repassword-2">
                         re-type Password:
-                        <!-- <input type="password" name="password_confirmation" id="repassword-2" placeholder=""
-                            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                            required="required" /> -->
                         <input type="password" name="password_confirmation" id="repassword-2" required />
                     </label>
 
@@ -252,7 +205,7 @@
     <!--end of signup form popup-->
 
     <!-- BEGIN | Header -->
-    <header class="ht-header">
+    <header class="ht-header watch-header">
 
         <div class="container">
 
@@ -260,6 +213,7 @@
 
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header logo">
+
                     <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <div id="nav-icon1">
@@ -268,7 +222,9 @@
                             <span></span>
                         </div>
                     </div>
+
                     <a class="logo-txt" href="{{ url('/') }}">ONLY<span>fiLM</span></a>
+
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -300,111 +256,48 @@
 
             </nav>
 
-            <!-- top search form -->
-            <div class="top-search">
-                <input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-            </div>
-
         </div>
 
     </header>
     <!-- END | Header -->
 
-    <div class="hero common-hero">
+    <div class="watch-hero">
 
         <div class="container">
+
             <div class="row">
                 <div class="col-md-12">
-                    <div class="hero-ct">
-                        <h1>Library</h1>
-                    </div>
+                    <video src="{{$film->file_path}}" style="width: 100%;" autoplay controls
+                        controlsList="nodownload"></video>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="page-single">
+            <div class="row watch-text">
 
-        <div class="container">
+                <div class="col-md-8">
 
-            <div class="row">
+                    <!-- <h6>StivoSimpoBwuoy</h6>
 
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <p>film description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure quibusdam,
+                        voluptatum illo aperiam vitae provident voluptates unde sunt tempora explicabo, consequatur
+                        cupiditate ratione inventore, architecto harum veritatis! Odio eum numquam optio dolore eligendi
+                        dolorem id odit deserunt ab, suscipit rerum error aperiam, modi et enim aliquam ad pariatur
+                        ullam nemo quod atque molestiae quasi aliquid cum. Tempora qui facilis consequuntur, corrupti
+                        magni temporibus omnis delectus quod molestiae atque unde vitae laborum eaque ex animi sed.
+                        Laboriosam veritatis rerum distinctio, explicabo fugiat facere odio maiores, cumque ipsum
+                        quibusdam eius dolore aut quisquam sit delectus saepe, adipisci animi ut aspernatur reiciendis?
+                    </p> -->
+                    <h6>{{$film->title}}</h6>
 
-                    <div class="topbar-filter fw">
-                        <p>Found <span>{{$film_count}}</span> in total</p>
-                        <label>Sort by:</label>
-                        <select>
-                            <option value="popularity">Popularity Descending</option>
-                            <option value="popularity">Popularity Ascending</option>
-                            <option value="rating">Rating Descending</option>
-                            <option value="rating">Rating Ascending</option>
-                            <option value="date">Release date Descending</option>
-                            <option value="date">Release date Ascending</option>
-                        </select>
-                        <!-- <a href="#" class="list"><i class="ion-ios-list-outline "></i></a>
-                        @if(isset($film))
-                        <a href="{{ route('movie_single', ['film' => $film] ) }}" class="grid"><i
-                                class="ion-grid active"></i></a>
-                        @else
-                        <a href="#" class="grid"><i class="ion-grid active"></i></a>
-                        @endif -->
-                    </div>
-
-                    <div class="flex-wrap-movielist mv-grid-fw">
-
-                        @if(isset($films))
-                        @foreach ($films as $film)
-                        <div class="movie-item-style-2 movie-item-style-1">
-
-                            <img src="{{ asset('images/uploads/mv1.jpg') }}" alt="">
-
-                            <div class="hvr-inner">
-                                <a href="{{ route('movie_single', ['film' => $film] ) }}">
-                                    Read more<i class="ion-android-arrow-dropright"></i>
-                                </a>
-                            </div>
-
-                            <div class="mv-item-infor">
-                                <h6><a href="{{ route('movie_single', ['film' => $film] ) }}">{{$film->title}}</a></h6>
-                                <p class="rate">
-                                    <!-- <i class="ion-android-star"></i> -->
-                                    <span>8.1</span> /10
-                                </p>
-                            </div>
-                        </div>
-                        @endforeach
-                        @endif
-
-
-                    </div>
-
-                    <div class="topbar-filter">
-                        <label>Movies per page:</label>
-                        <select>
-                            <option value="range">20 Movies</option>
-                            <option value="saab">10 Movies</option>
-                        </select>
-
-                        <div class="pagination2">
-                            <span>Page 1 of 2:</span>
-                            <a class="active" href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">...</a>
-                            <a href="#">78</a>
-                            <a href="#">79</a>
-                            <a href="#"><i class="ion-arrow-right-b"></i></a>
-                        </div>
-                    </div>
+                    <p>{{$film->description}}</p>
 
                 </div>
 
             </div>
+
         </div>
 
     </div>
-    <!-- footer section-->
 
     <!-- end of footer section-->
 
@@ -415,6 +308,6 @@
 
 </body>
 
-<!-- moviegridfw07:38-->
+<!-- moviesingle11:03-->
 
 </html>

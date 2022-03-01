@@ -267,9 +267,10 @@
                             <span></span>
                         </div>
                     </div>
-                    <a href="{{ url('/') }}">
+                    <!-- <a href="{{ url('/') }}">
                         <img class="logo" src="{{ asset('images/logo1.png') }}" alt="" width="119" height="58">
-                    </a>
+                    </a> -->
+                    <a class="logo-txt" href="{{ url('/') }}">ONLY<span>fiLM</span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -336,13 +337,17 @@
                     <div class="movie-img sticky-sb">
                         <img src="{{ asset('images/uploads/movie-single.jpg') }}" alt="">
                         <div class="movie-btn">
-                            <!-- <div class="btn-transform transform-vertical red">
-                                <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a>
+                            <div class="btn-transform transform-vertical red">
+                                <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch</a>
                                 </div>
-                                <div><a href="https://www.youtube.com/embed/o-0hcF97wy0"
-                                        class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a>
+                                <div>
+                                    <!-- <a href="https://www.youtube.com/embed/o-0hcF97wy0" -->
+                                    <a href="{{route('watch', ['film' => $film])}}"
+                                        class="item item-2 redbtn fancybox-media hvr-grow">
+                                        <i class="ion-play"></i>
+                                    </a>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="btn-transform transform-vertical">
                                 <div><a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a>
                                 </div>

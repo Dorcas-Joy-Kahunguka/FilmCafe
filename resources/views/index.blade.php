@@ -384,8 +384,7 @@
                             <span></span>
                         </div>
                     </div>
-                    <a href="{{ url('/') }}"><img class="logo" src="{{ asset('images/logo1.png') }}" alt="" width="119"
-                            height="58"></a>
+                    <a class="logo-txt" href="{{ url('/') }}">ONLY<span>fiLM</span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -398,6 +397,8 @@
 
                     </ul>
                     <ul class="nav navbar-nav flex-child-menu menu-right">
+
+                        <li class=""><a href="{{ route('movie_grid_fw') }}">Grid View</a></li>
 
                         @if(auth()->user())
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>

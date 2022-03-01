@@ -8318,3 +8318,48 @@ footer.full-width-ft .ft-copyright {
   margin: 0 0 0 0 !important;
   height: fit-content !important;
 }
+.watch-page{
+  background-color: #0f2133;
+}
+
+.watch-hero{
+  padding: 0em 0;
+  height: fit-content !important;
+}
+
+.watch-top{
+  border: none !important;
+}
+
+.watch-header{
+  position: relative;
+  background-color: #0f2133;
+}
+
+.watch-text{
+  padding: 2em 0 0;
+}
+
+.watch-text *{
+  color: #c8d9e1;
+  font-family: 'Dosis', Courier, monospace;
+}
+
+.watch-text h6{
+  font-size: 2em;
+}
+
+.watch-text p{
+  padding: 1em 0 0;
+}
+
+.logo-txt{
+  font-family: 'Dosis', Courier, monospace;
+  font-size: 2em;
+  font-weight: 700;
+  color: #c8d9e1;
+}
+.logo-txt span{
+  font-weight: 200;
+  color: #dd003f;
+}

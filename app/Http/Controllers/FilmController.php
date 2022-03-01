@@ -10,6 +10,19 @@ use Illuminate\Support\Facades\Storage;
 
 class FilmController extends Controller
 {
+
+    public function index()
+    {
+        
+        $films = Film::all('id','title','description','file_path', 'user_id');
+        $film_count = count($films);
+        
+        return view('movie_grid_fw', [
+            'films' => $films,
+            'film_count' => $film_count,
+        ]);
+        
+    }
     
     public function store(Request $request)
     {
@@ -43,7 +56,7 @@ class FilmController extends Controller
         $tags = Tag::find($request->genre);
         $film->tags()->attach($tags);
 
-        dd($request->title,$request->description,$request->genre,$new_file_name,$storage_location);
+        // dd($request->title,$request->description,$request->genre,$new_file_name,$storage_location);
 
         return redirect(RouteServiceProvider::ROOT);
 
