@@ -7,10 +7,11 @@ A platform for local producers and script writers to sell their films online to 
 1. Clone the repository.
 2. Run `composer install`
 3. Set up your database credentials in the ***.env*** file
-4. Run the following commands in your terminal in the given order:
+4. Create the database tables by running the following command in your terminal:
 ```
 php artisan migrate
 ```
+5. Run the command below to create test users and video tags:
 ```
 php artisan db:seed
 ```
