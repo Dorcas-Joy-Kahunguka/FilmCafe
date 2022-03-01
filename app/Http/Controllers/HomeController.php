@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $films = Film::all('id','title','description','file_path', 'user_id');
+        $films = Film::all('id','title','description','file_path', 'thumbnail_path', 'user_id');
 
         // $film = Film::find(1);
         // $owner = $film->user->name;

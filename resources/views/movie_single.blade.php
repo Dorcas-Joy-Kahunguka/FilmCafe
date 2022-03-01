@@ -335,7 +335,7 @@
 
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <div class="movie-img sticky-sb">
-                        <img src="{{ asset('images/uploads/movie-single.jpg') }}" alt="">
+                        <img src="{{$film->thumbnail_path}}" alt="">
                         <div class="movie-btn">
                             <div class="btn-transform transform-vertical red">
                                 <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch</a>

@@ -357,7 +357,8 @@
                         @foreach ($films as $film)
                         <div class="movie-item-style-2 movie-item-style-1">
 
-                            <img src="{{ asset('images/uploads/mv1.jpg') }}" alt="">
+                            <!-- <img src="{{ asset('images/uploads/mv1.jpg') }}" alt=""> -->
+                            <img src="{{$film->thumbnail_path}}" alt="">
 
                             <div class="hvr-inner">
                                 <a href="{{ route('movie_single', ['film' => $film] ) }}">

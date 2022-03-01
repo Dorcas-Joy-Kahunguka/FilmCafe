@@ -13,6 +13,7 @@ class Film extends Model
         'title',
         'description',
         'file_path',
+        'thumbnail_path',
         'user_id',
     ];
 

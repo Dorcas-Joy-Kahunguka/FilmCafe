@@ -268,9 +268,7 @@
 
                     <label for="title">
                         Title:
-                        <!-- <input type="text" name="title" id="title" placeholder="Nairobi Half Life"
-                            pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" /> -->
-                        <input type="text" name="title" id="title" placeholder="Nairobi Half Life" />
+                        <input type="text" name="title" id="title" placeholder="Nairobi Half Life" required />
                     </label>
 
                     @error('title')
@@ -325,8 +323,7 @@
 
                     <label for="file">
                         Film:
-                        <input type="file" name="file" id="file" accept="video/mp4" required style="border: none;">
-                        <!-- <input type="text" name="title" id="title" placeholder="Nairobi Half Life" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" /> -->
+                        <input type="file" name="file" id="file" accept="video/*" required style="border: none;">
                     </label>
 
                     @error('file')
@@ -335,25 +332,23 @@
                     </div>
                     @enderror
 
-
-
                 </div>
 
-                <!-- <div class="row"> -->
+                <div class="row">
 
-                <!-- <label for="file_thumbnail">
+                    <label for="file_thumbnail">
                         Thumbnail:
                         <input type="file" name="file_thumbnail" id="file_thumbnail" accept="image/*" required
                             style="border: none;">
-                    </label> -->
+                    </label>
 
-                <!-- @error('file_thumbnail')
+                    @error('file_thumbnail')
                     <div class="alert alert-danger">
                         {{ $message }}
                     </div>
-                    @enderror -->
+                    @enderror
 
-                <!-- </div> -->
+                </div>
 
 
                 <div class="row">
@@ -442,11 +437,11 @@
                         <div class="mv-img">
                             @if(isset($film))
                             <a href="{{ route('movie_single', ['film' => $film] ) }}">
-                                <img src="{{ asset('images/uploads/slider1.jpg') }}" alt="" width="285" height="437">
+                                <img src="{{$film->thumbnail_path}}" alt="" width="285" height="437">
                             </a>
                             @else
                             <a href="#">
-                                <img src="{{ asset('images/uploads/slider1.jpg') }}" alt="" width="285" height="437">
+                                <img src="{{$film->thumbnail_path}}" alt="" width="285" height="437">
                             </a>
                             @endif
                         </div>

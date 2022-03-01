@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('file_path');
+            $table->string('thumbnail_path');
             $table->foreignId('user_id');
-            // $table->foreign('owner_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

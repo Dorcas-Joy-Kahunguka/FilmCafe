@@ -14,7 +14,7 @@ class FilmController extends Controller
     public function index()
     {
         
-        $films = Film::all('id','title','description','file_path', 'user_id');
+        $films = Film::all('id','title','description','file_path', 'thumbnail_path', 'user_id');
         $film_count = count($films);
         
         return view('movie_grid_fw', [
@@ -32,13 +32,22 @@ class FilmController extends Controller
             'description' => ['required', 'string'],
             'genre' => ['required'],
             'file' => ['required'],
+            'file_thumbnail' => ['required'],
         ]);
 
-        $file_name = $request->file('file')->getClientOriginalName();
-        $new_file_name = time() . '_' . $file_name;
+        $time = time();
 
-        $storage_location = $request->file('file')->storeAs('films', $new_file_name, 'public');
+        // Vidoe
+        $file_name = $request->file('file')->getClientOriginalName();
+        $new_file_name = $time . '_' . $file_name;
+        $storage_location = $request->file('file')->storeAs('uploads/films', $new_file_name, 'public');
         $file_path = Storage::url($storage_location);
+
+        // Thumbnail
+        $file_thumbnail_name = $request->file('file_thumbnail')->getClientOriginalName();
+        $new_file_thumbnail_name = $time . '_' . $file_thumbnail_name;
+        $thumbnail_storage_location = $request->file('file_thumbnail')->storeAs('uploads/thumbnails', $new_file_thumbnail_name, 'public');
+        $thumbnail_path = Storage::url($thumbnail_storage_location);
 
         // File url
         // $file_url = url($file_path);
@@ -50,6 +59,7 @@ class FilmController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'file_path' => $file_path,
+            'thumbnail_path' => $thumbnail_path,
             'user_id' => auth()->user()->id,
         ]);
 
