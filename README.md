@@ -21,11 +21,23 @@ A platform for local producers and script writers to sell their films online to 
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Getting Started
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clone the repository.
+2. Run `composer install`
+3. Set up your database credentials in the ***.env*** file
+4. Run the following commands in your terminal in the given order:
+```
+php artisan migrate
+php artisan db:seed
+```
+Two test users are created:
+     first user:
+        email: john@doe.com
+        password: 12345678
+     Second user:
+        email: jane@doe.com
+        password: 87654321
 
 ## Laravel Sponsors
 
