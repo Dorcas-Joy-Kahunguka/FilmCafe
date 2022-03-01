@@ -10,6 +10,8 @@ A platform for local producers and script writers to sell their films online to 
 4. Run the following commands in your terminal in the given order:
 ```
 php artisan migrate
+```
+```
 php artisan db:seed
 ```
 Two test users are created:
