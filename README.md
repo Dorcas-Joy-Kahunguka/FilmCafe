@@ -13,7 +13,7 @@ php artisan migrate
 php artisan db:seed
 ```
 Two test users are created:
-- first user:
+- First user:
   - email: john@doe.com
   - password: 12345678
 - Second user:
