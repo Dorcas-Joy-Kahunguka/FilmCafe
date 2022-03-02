@@ -25,6 +25,13 @@
     <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <style>
+    .pagination {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    </style>
+
 </head>
 
 <body>
@@ -301,9 +308,14 @@
             </nav>
 
             <!-- top search form -->
-            <div class="top-search">
-                <input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-            </div>
+            <form method="POST" action="{{ route('movie_grid_fw') }}">
+                @csrf
+                <div class="top-search">
+                    <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">
+                </div>
+                <input type="submit" value="Search">
+            </form>
+
 
         </div>
 
@@ -342,13 +354,9 @@
                             <option value="date">Release date Descending</option>
                             <option value="date">Release date Ascending</option>
                         </select>
-                        <!-- <a href="#" class="list"><i class="ion-ios-list-outline "></i></a>
-                        @if(isset($film))
-                        <a href="{{ route('movie_single', ['film' => $film] ) }}" class="grid"><i
+                        <!-- <a href="#" class="list"><i class="ion-ios-list-outline "></i></a> -->
+                        <a title="Show all" href="{{ route('movie_grid_fw') }}" class="grid"><i
                                 class="ion-grid active"></i></a>
-                        @else
-                        <a href="#" class="grid"><i class="ion-grid active"></i></a>
-                        @endif -->
                     </div>
 
                     <div class="flex-wrap-movielist mv-grid-fw">
@@ -381,21 +389,28 @@
                     </div>
 
                     <div class="topbar-filter">
-                        <label>Movies per page:</label>
-                        <select>
+                        <label>
+                            @if($films->hasPages())
+                            Current page: <b>{{$films->currentPage()}}</b>
+                            @else
+                            No more pages
+                            @endif
+                        </label>
+                        <!-- <select>
                             <option value="range">20 Movies</option>
                             <option value="saab">10 Movies</option>
-                        </select>
+                        </select> -->
 
                         <div class="pagination2">
-                            <span>Page 1 of 2:</span>
+                            <!-- <span>Page 1 of 2:</span>
                             <a class="active" href="#">1</a>
                             <a href="#">2</a>
                             <a href="#">3</a>
                             <a href="#">...</a>
                             <a href="#">78</a>
                             <a href="#">79</a>
-                            <a href="#"><i class="ion-arrow-right-b"></i></a>
+                            <a href="#"><i class="ion-arrow-right-b"></i></a> -->
+                            {!! $films->links() !!}
                         </div>
                     </div>
 

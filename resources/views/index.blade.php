@@ -412,9 +412,14 @@
             </nav>
 
             <!-- top search form -->
-            <div class="top-search">
-                <input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-            </div>
+            <form method="POST" action="{{ route('movie_grid_fw') }}">
+                @csrf
+                <div class="top-search">
+                    <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">
+                </div>
+                <input type="submit" value="Search">
+            </form>
+
         </div>
     </header>
     <!-- END | Header -->

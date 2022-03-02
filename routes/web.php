@@ -25,6 +25,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/movie_grid_fw', [FilmController::class, 'index'])->name('movie_grid_fw');
 
+Route::post('/movie_grid_fw', [FilmController::class, 'search']);
+
 Route::get('/movie_single/{film}', [MovieController::class, 'index'])->name('movie_single');
 
 Route::get('/watch/{film}', [WatchFilmController::class, 'index'])->name('watch');

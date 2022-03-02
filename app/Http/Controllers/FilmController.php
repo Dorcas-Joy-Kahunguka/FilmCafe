@@ -14,8 +14,9 @@ class FilmController extends Controller
     public function index()
     {
         
-        $films = Film::all('id','title','description','file_path', 'thumbnail_path', 'user_id');
-        $film_count = count($films);
+        // $films = Film::all('id','title','description','file_path', 'thumbnail_path', 'user_id');
+        $films = Film::paginate(6);
+        $film_count = $films->total();
         
         return view('movie_grid_fw', [
             'films' => $films,
@@ -70,6 +71,26 @@ class FilmController extends Controller
 
         return redirect(RouteServiceProvider::ROOT);
 
+    }
+
+    public function search(Request $request)
+    {
+        
+        $validated = $request->validate([
+            'search_word' => ['required', 'string'],
+        ]);
+        
+        // $films = Film::where('title', 'like', '%' . $validated['search_word'] . '%')->get();
+        $films = Film::where('title', 'like', '%' . $validated['search_word'] . '%')->paginate(6);
+        $film_count = $films->total();
+
+        // dd($films, $film_count);
+        
+        return view('movie_grid_fw', [
+            'films' => $films,
+            'film_count' => $film_count,
+        ]);
+        
     }
 
 }

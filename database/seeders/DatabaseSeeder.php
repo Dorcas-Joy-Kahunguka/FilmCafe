@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             
             TagsSeeder::class,
             UserSeeder::class,
+            FilmsSeeder::class,
            
         ]);
 
