@@ -17,13 +17,11 @@ use App\Http\Controllers\WatchFilmController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/my_movies', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
 
-// Route::get('/movie_grid_fw', function () {
-//     return view('movie_grid_fw');
-// })->name('movie_grid_fw');
-
-Route::get('/movie_grid_fw', [FilmController::class, 'index'])->name('movie_grid_fw');
+// Route::get('/movie_grid_fw', [FilmController::class, 'index'])->name('movie_grid_fw');
+Route::get('/', [FilmController::class, 'index'])->name('home');
 
 Route::post('/movie_grid_fw', [FilmController::class, 'search']);
 
