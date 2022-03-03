@@ -300,7 +300,7 @@
             </nav>
 
             <!-- top search form -->
-            <form class="search-form" method="POST" action="{{ route('movie_grid_fw') }}">
+            <form class="search-form " method="POST" action="{{ route('movie_grid_fw') }}">
                 @csrf
                 <div class="top-search">
                     <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">
