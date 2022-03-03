@@ -4,7 +4,7 @@
 <head>
 
     <!-- Basic need -->
-    <title>OnlyFilm | Home</title>
+    <title>OnlyFilm | My Films</title>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -412,7 +412,7 @@
             </nav>
 
             <!-- top search form -->
-            <form method="POST" action="{{ route('home') }}">
+            <form method="POST" action="{{ route('my_movies') }}">
                 @csrf
                 <div class="top-search">
                     <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">

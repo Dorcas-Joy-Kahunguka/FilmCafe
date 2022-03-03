@@ -27,4 +27,24 @@ class HomeController extends Controller
         ]);
 
     }
+
+    public function search(Request $request)
+    {
+        
+        $validated = $request->validate([
+            'search_word' => ['required', 'string'],
+        ]);
+        
+        // $films = Film::where('title', 'like', '%' . $validated['search_word'] . '%')->get();
+        // $films = Film::where('title', 'like', '%' . $validated['search_word'] . '%')->paginate(6);
+        $films = (auth()->user())->films()->where('title', 'like', '%' . $validated['search_word'] . '%')->get();
+        $tags = Tag::all('id','tag_name');
+        
+        return view('index', [
+            'films' => $films,
+            'tags' => $tags,
+        ]);
+        
+    }
+    
 }

@@ -67,9 +67,8 @@ class FilmController extends Controller
         $tags = Tag::find($request->genre);
         $film->tags()->attach($tags);
 
-        // dd($request->title,$request->description,$request->genre,$new_file_name,$storage_location);
-
-        return redirect(RouteServiceProvider::ROOT);
+        // return redirect(RouteServiceProvider::ROOT);
+        return redirect()->route('my_movies');
 
     }
 
