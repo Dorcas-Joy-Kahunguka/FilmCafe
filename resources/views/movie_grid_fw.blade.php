@@ -309,7 +309,7 @@
             </nav>
 
             <!-- top search form -->
-            <form method="POST" action="{{ route('home') }}">
+            <form class="search-form" method="POST" action="{{ route('home') }}">
                 @csrf
                 <div class="top-search">
                     <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">
