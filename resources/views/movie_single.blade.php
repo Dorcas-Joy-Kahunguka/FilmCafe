@@ -341,6 +341,7 @@
                     <div class="movie-img sticky-sb">
                         <img src="{{$film->thumbnail_path}}" alt="">
                         <div class="movie-btn">
+
                             <div class="btn-transform transform-vertical red">
                                 <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch</a>
                                 </div>
@@ -352,11 +353,22 @@
                                     </a>
                                 </div>
                             </div>
+
                             <div class="btn-transform transform-vertical">
-                                <div><a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a>
+                                <div>
+                                    <!-- <a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a> -->
+                                    <!-- <a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i>
+                                        <div id="paypal-button-container"></div>
+                                    </a> -->
+                                    <div id="smart-button-container">
+                                        <div style="text-align: center;">
+                                            <div id="paypal-button-container"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div><a href="#" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
+                                <!-- <div><a href="#" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div> -->
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -459,6 +471,70 @@
     <script src="{{ URL::asset('js/plugins.js') }}"></script>
     <script src="{{ URL::asset('js/plugins2.js') }}"></script>
     <script src="{{ URL::asset('js/custom.js') }}"></script>
+
+    <!-- PAYPAL -->
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD"
+        data-sdk-integration-source="button-factory"></script>
+    <script>
+    function initPayPalButton() {
+        paypal.Buttons({
+            style: {
+                shape: 'pill',
+                color: 'black',
+                layout: 'vertical',
+                label: 'buynow',
+
+            },
+
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        "description": "Get this film",
+                        "amount": {
+                            "currency_code": "USD",
+                            "value": 1110,
+                            "breakdown": {
+                                "item_total": {
+                                    "currency_code": "USD",
+                                    "value": 1000
+                                },
+                                "shipping": {
+                                    "currency_code": "USD",
+                                    "value": 10
+                                },
+                                "tax_total": {
+                                    "currency_code": "USD",
+                                    "value": 100
+                                }
+                            }
+                        }
+                    }]
+                });
+            },
+
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+
+                    // Full available details
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                    // Show a success message within this page, e.g.
+                    const element = document.getElementById('paypal-button-container');
+                    element.innerHTML = '';
+                    element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+
+                });
+            },
+
+            onError: function(err) {
+                console.log(err);
+            }
+        }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+    </script>
 
 </body>
 

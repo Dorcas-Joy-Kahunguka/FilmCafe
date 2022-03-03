@@ -393,7 +393,7 @@
                     </ul>
                     <ul class="nav navbar-nav flex-child-menu menu-right">
 
-                        <li class=""><a href="{{ route('movie_grid_fw') }}">Grid View</a></li>
+                        <li class=""><a href="{{ route('home') }}">All Movies</a></li>
 
                         @if(auth()->user())
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>

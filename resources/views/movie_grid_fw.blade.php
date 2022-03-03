@@ -355,8 +355,7 @@
                             <option value="date">Release date Ascending</option>
                         </select>
                         <!-- <a href="#" class="list"><i class="ion-ios-list-outline "></i></a> -->
-                        <a title="Show all" href="{{ route('movie_grid_fw') }}" class="grid"><i
-                                class="ion-grid active"></i></a>
+                        <a title="Show all" href="{{ route('home') }}" class="grid"><i class="ion-grid active"></i></a>
                     </div>
 
                     <div class="flex-wrap-movielist mv-grid-fw">
