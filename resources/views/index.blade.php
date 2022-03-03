@@ -4,7 +4,7 @@
 <head>
 
     <!-- Basic need -->
-    <title>Creator</title>
+    <title>OnlyFilm | Home</title>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">

@@ -5,7 +5,7 @@
 
 <head>
     <!-- Basic need -->
-    <title>movies single</title>
+    <title>OnlyFilm | Movie</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="">

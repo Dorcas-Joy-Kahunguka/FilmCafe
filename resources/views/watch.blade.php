@@ -6,7 +6,7 @@
 <head>
 
     <!-- Basic need -->
-    <title>Watch</title>
+    <title>OnlyFilm | Watch</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="">
