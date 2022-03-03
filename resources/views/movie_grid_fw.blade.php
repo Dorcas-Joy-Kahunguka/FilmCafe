@@ -293,7 +293,7 @@
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <li class=""><button class="button" type="submit">Log Out</button></li>
+                            <li class=""><button class="button normal-btn" type="submit">Log Out</button></li>
                         </form>
                         @else
                         <li class="loginLink"><a href="#">LOG In</a></li>
@@ -308,12 +308,12 @@
             </nav>
 
             <!-- top search form -->
-            <form method="POST" action="{{ route('movie_grid_fw') }}">
+            <form class="search-form" method="POST" action="{{ route('movie_grid_fw') }}">
                 @csrf
                 <div class="top-search">
                     <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">
                 </div>
-                <input type="submit" value="Search">
+                <input class="normal-btn" type="submit" value="Search">
             </form>
 
 
