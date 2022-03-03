@@ -283,6 +283,7 @@
                     <ul class="nav navbar-nav flex-child-menu menu-right">
 
                         @if(auth()->user())
+                        <li class=""><a href="{{ route('my_movies') }}">My Movies</a></li>
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

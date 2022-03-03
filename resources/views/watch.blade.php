@@ -243,7 +243,7 @@
 
                         <form class="search-form" method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <li class=""><button class="button" type="submit">Log Out</button></li>
+                            <li class=""><button class="button normal-btn" type="submit">Log Out</button></li>
                         </form>
                         @else
                         <li class="loginLink"><a href="#">LOG In</a></li>
