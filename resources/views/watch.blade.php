@@ -240,7 +240,8 @@
 
                         @if(auth()->user())
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>
-                        <form method="POST" action="{{ route('logout') }}">
+
+                        <form class="search-form" method="POST" action="{{ route('logout') }}">
                             @csrf
                             <li class=""><button class="button" type="submit">Log Out</button></li>
                         </form>
