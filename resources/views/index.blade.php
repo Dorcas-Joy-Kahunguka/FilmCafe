@@ -397,7 +397,7 @@
 
                         @if(auth()->user())
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>
-                        <form class="search-form" method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <li class=""><button class="button normal-btn" type="submit">Log Out</button></li>
                         </form>
@@ -412,7 +412,7 @@
             </nav>
 
             <!-- top search form -->
-            <form method="POST" action="{{ route('my_movies') }}">
+            <form class="search-form" method="POST" action="{{ route('my_movies') }}">
                 @csrf
                 <div class="top-search">
                     <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">

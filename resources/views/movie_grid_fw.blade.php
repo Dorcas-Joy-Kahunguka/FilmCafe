@@ -292,7 +292,7 @@
                         @if(auth()->user())
                         <li class=""><a href="{{ route('my_movies') }}">My Movies</a></li>
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form class="search-form" method="POST" action="{{ route('logout') }}">
                             @csrf
                             <li class=""><button class="button normal-btn" type="submit">Log Out</button></li>
                         </form>
