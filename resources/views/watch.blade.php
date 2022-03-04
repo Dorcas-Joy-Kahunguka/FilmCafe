@@ -283,23 +283,26 @@
                 </div>
                 <div class="col-md-4">
                     <div class="movie-rate">
+
                         <div class="rate">
-                            <h6>8.1/10<h6>
-                                    <p class="rv">56 Reviews</p>
+                            <h6 class="rating-value">{{$film->rating}}/10<h6>
+                                    <p class="reviews-value">{{$film->ratings}} Reviews</p>
                         </div>
+
                         <div class="rate-star">
                             <p>Rate This Movie: </p>
-                            <i data-value="1" class="rating-star ion-ios-star-outline"></i>
-                            <i data-value="2" class="rating-star ion-ios-star-outline"></i>
-                            <i data-value="3" class="rating-star ion-ios-star-outline"></i>
-                            <i data-value="4" class="rating-star ion-ios-star-outline"></i>
-                            <i data-value="5" class="rating-star ion-ios-star-outline"></i>
-                            <i data-value="6" class="rating-star ion-ios-star-outline"></i>
-                            <i data-value="7" class="rating-star ion-ios-star-outline"></i>
-                            <i data-value="8" class="rating-star ion-ios-star-outline"></i>
-                            <i data-value="9" class="rating-star ion-ios-star-outline"></i>
-                            <i data-value="10" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="1" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="2" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="3" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="4" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="5" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="6" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="7" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="8" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="9" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="10" class="s-rating-star rating-star ion-ios-star-outline"></i>
                         </div>
+
                     </div>
                 </div>
 

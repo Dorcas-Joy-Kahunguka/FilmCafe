@@ -385,21 +385,21 @@
 
                         <div class="movie-rate">
                             <div class="rate">
-                                <p><span>8.1</span> /10<br>
-                                    <span class="rv">56 Reviews</span>
+                                <p><span class="rating-value">{{$film->rating}}</span> /10<br>
+                                    <span class="reviews-value">{{$film->ratings}} Reviews</span>
                                 </p>
                             </div>
                             <div class="rate-star">
-                                <p>Rate This Movie: </p>
-                                <i class="ion-ios-star"></i>
-                                <i class="ion-ios-star"></i>
-                                <i class="ion-ios-star"></i>
-                                <i class="ion-ios-star"></i>
-                                <i class="ion-ios-star"></i>
-                                <i class="ion-ios-star"></i>
-                                <i class="ion-ios-star"></i>
-                                <i class="ion-ios-star"></i>
-                                <i class="ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
+                                <i class="rating-star ion-ios-star-outline"></i>
                             </div>
                         </div>
 
