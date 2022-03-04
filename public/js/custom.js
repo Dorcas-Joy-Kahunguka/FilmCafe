@@ -13,6 +13,32 @@ $(window).on('load', function () { // makes sure the whole site is loaded
 		}
 	}
 })
+
+
+const ratingStars = Array.from(document.querySelectorAll('.rating-star'));
+ratingStars.forEach(star => star.addEventListener('click', (e) => {
+	const data = {
+		rating: e.target.dataset.value,
+		id: document.querySelector('.watch-title').dataset.id
+	}
+
+	console.log(data)
+
+	fetch('/makeReview', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(data)
+	})
+	.then(response => response.json())
+	.then(data => {
+	console.log('Success:', data);
+	})
+	.catch((error) => {
+	console.error('Error:', error);
+	});
+}));
+
+
 $(function () {
 	'use strict';
 	// js for dropdown menu

@@ -276,22 +276,29 @@
             <div class="row watch-text">
 
                 <div class="col-md-8">
-
-                    <!-- <h6>StivoSimpoBwuoy</h6>
-
-                    <p>film description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure quibusdam,
-                        voluptatum illo aperiam vitae provident voluptates unde sunt tempora explicabo, consequatur
-                        cupiditate ratione inventore, architecto harum veritatis! Odio eum numquam optio dolore eligendi
-                        dolorem id odit deserunt ab, suscipit rerum error aperiam, modi et enim aliquam ad pariatur
-                        ullam nemo quod atque molestiae quasi aliquid cum. Tempora qui facilis consequuntur, corrupti
-                        magni temporibus omnis delectus quod molestiae atque unde vitae laborum eaque ex animi sed.
-                        Laboriosam veritatis rerum distinctio, explicabo fugiat facere odio maiores, cumque ipsum
-                        quibusdam eius dolore aut quisquam sit delectus saepe, adipisci animi ut aspernatur reiciendis?
-                    </p> -->
-                    <h6>{{$film->title}}</h6>
-
+                    <h6 class="watch-title" data-id="{{$film->id}}">{{$film->title}}</h6>
                     <p>{{$film->description}}</p>
-
+                </div>
+                <div class="col-md-4">
+                    <div class="movie-rate">
+                        <div class="rate">
+                            <h6>8.1/10<h6>
+                            <p class="rv">56 Reviews</p>
+                        </div>
+                        <div class="rate-star">
+                            <p>Rate This Movie: </p>
+                            <i data-value="1" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="2" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="3" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="4" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="5" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="6" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="7" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="8" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="9" class="rating-star ion-ios-star-outline"></i>
+                            <i data-value="10" class="rating-star ion-ios-star-outline"></i>
+                        </div>
+                    </div>
                 </div>
 
             </div>
