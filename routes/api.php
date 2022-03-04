@@ -19,26 +19,28 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('films', function() {
-    // If the Content-Type and Accept headers are set to 'application/json', 
-    // this will return a JSON structure. This will be cleaned up later.
-    return Film::all();
-});
+// Route::get('makeReview', function() {
+//     // If the Content-Type and Accept headers are set to 'application/json', 
+//     // this will return a JSON structure. This will be cleaned up later.
+//     $films = Film::all();
+//     return response()->json($films, 200);
+// });
  
 // Route::get('articles/{id}', function($id) {
 //     return Article::find($id);
 // });
 
 // Route::post('articles', function(Request $request) {
-//     return Article::create($request->all);
+//     return Afilmsrticle::create($request->all);
 // });
 
-// Route::put('articles/{id}', function(Request $request, $id) {
-//     $article = Article::findOrFail($id);
-//     $article->update($request->all());
+Route::put('makeReview', function(Request $request, $id) {
+    $film = Film::findOrFail($id);
+    $film->update($request->all());
 
-//     return $article;
-// });
+    // return $film;
+    return response()->json($film, 200);
+});
 
 // Route::delete('films/{id}', function($id) {
 //     Film::find($id)->delete();

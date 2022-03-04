@@ -24,18 +24,18 @@ ratingStars.forEach(star => star.addEventListener('click', (e) => {
 
 	console.log(data)
 
-	fetch('/makeReview', {
-		method: 'POST',
+	fetch('/api/makeReview', {
+		method: 'PUT',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(data)
 	})
-	.then(response => response.json())
-	.then(data => {
-	console.log('Success:', data);
-	})
-	.catch((error) => {
-	console.error('Error:', error);
-	});
+		.then(response => response.json())
+		.then(data => {
+			console.log('Success:', data);
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
 }));
 
 

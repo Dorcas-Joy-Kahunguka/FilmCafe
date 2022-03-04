@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('file_path');
             $table->string('thumbnail_path');
             $table->foreignId('user_id');
+            $table->integer('rating')->default(0);
+            $table->integer('ratings')->default(0);
             $table->timestamps();
         });
     }
