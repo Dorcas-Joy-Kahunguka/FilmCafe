@@ -19,6 +19,31 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('makeReview', function(Request $request) {
+
+    dd(request()->all());
+    
+    $id = '1';
+    $rating_value = '6';
+    
+    $film = Film::findOrFail($id);
+
+    $current_rating = $film->rating;
+    $current_ratings = $film->ratings;
+
+    $new_rating = (($current_rating * $current_ratings) + $rating_value) / ($current_ratings + 1);
+    $new_ratings = $current_ratings + 1;
+
+
+    $film->rating = $new_rating;
+    $film->ratings = $new_ratings;
+    $film->save();
+
+    // return $film;
+    return response()->json($film, 200);
+    
+});
+
 // Route::get('makeReview', function() {
 //     // If the Content-Type and Accept headers are set to 'application/json', 
 //     // this will return a JSON structure. This will be cleaned up later.
@@ -34,16 +59,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return Afilmsrticle::create($request->all);
 // });
 
-Route::put('makeReview', function(Request $request, $id) {
-    // print request body
-    print_r($request->all());
-    
-    $film = Film::findOrFail($id);
-    $film->update($request->all());
+// Route::put('makeReview', function(Request $request, $id) {
 
-    // return $film;
-    return response()->json($film, 200);
-});
+//     dd(request()->all());
+    
+//     $film = Film::findOrFail($id);
+//     $film->update($request->all());
+
+//     // return $film;
+//     return response()->json($film, 200);
+// });
 
 // Route::delete('films/{id}', function($id) {
 //     Film::find($id)->delete();

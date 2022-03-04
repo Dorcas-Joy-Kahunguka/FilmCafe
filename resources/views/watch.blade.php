@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 </head>
 
 <body class="watch-page">
@@ -281,10 +283,12 @@
                 </div>
                 <div class="col-md-4">
                     <div class="movie-rate">
+
                         <div class="rate">
                             <h6 class="rating-value">{{$film->rating}}/10<h6>
-                            <p class="reviews-value">{{$film->ratings}} Reviews</p>
+                                    <p class="reviews-value">{{$film->ratings}} Reviews</p>
                         </div>
+
                         <div class="rate-star">
                             <p>Rate This Movie: </p>
                             <i data-value="1" class="s-rating-star rating-star ion-ios-star-outline"></i>
@@ -298,6 +302,7 @@
                             <i data-value="9" class="s-rating-star rating-star ion-ios-star-outline"></i>
                             <i data-value="10" class="s-rating-star rating-star ion-ios-star-outline"></i>
                         </div>
+
                     </div>
                 </div>
 
