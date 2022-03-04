@@ -25,8 +25,11 @@ ratingStars.forEach(star => star.addEventListener('click', (e) => {
 	console.log(data)
 
 	fetch('/api/makeReview', {
-		method: 'PUT',
-		headers: { 'Content-Type': 'application/json' },
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+		},
 		body: JSON.stringify(data)
 	})
 		.then(response => response.json())

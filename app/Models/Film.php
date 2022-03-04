@@ -15,6 +15,8 @@ class Film extends Model
         'file_path',
         'thumbnail_path',
         'user_id',
+        'rating',
+        'ratings',
     ];
 
     /**

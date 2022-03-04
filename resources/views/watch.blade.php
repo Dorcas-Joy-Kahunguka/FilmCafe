@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 </head>
 
 <body class="watch-page">
@@ -283,7 +285,7 @@
                     <div class="movie-rate">
                         <div class="rate">
                             <h6>8.1/10<h6>
-                            <p class="rv">56 Reviews</p>
+                                    <p class="rv">56 Reviews</p>
                         </div>
                         <div class="rate-star">
                             <p>Rate This Movie: </p>
