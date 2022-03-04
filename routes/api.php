@@ -20,11 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('makeReview', function(Request $request) {
-
-    dd(request()->all());
     
-    $id = '1';
-    $rating_value = '6';
+    $id = $request->id;
+    $rating_value = $request->rating;
     
     $film = Film::findOrFail($id);
 

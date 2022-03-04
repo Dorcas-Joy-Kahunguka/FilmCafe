@@ -12,6 +12,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <link rel="profile" href="#">
 
     <!--Google Font-->
@@ -24,8 +26,6 @@
     <!-- CSS files -->
     <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 </head>
 

@@ -14,14 +14,14 @@ $(window).on('load', function () { // makes sure the whole site is loaded
 	}
 })
 
-if(document.querySelector('.rating-value')){
+if (document.querySelector('.rating-value')) {
 	const ratingValue = document.querySelector('.rating-value').innerHTML;
 	const ratingStars = Array.from(document.querySelectorAll('.rating-star'));
 	const submitRatingStars = Array.from(document.querySelectorAll('.s-rating-star'));
 
 	console.log(ratingValue)
 
-	for(i = 0; i < ratingValue; i++) {
+	for (i = 0; i < ratingValue; i++) {
 		ratingStars[i].classList.remove('ion-ios-star-outline');
 		ratingStars[i].classList.add('ion-ios-star');
 	}
@@ -34,18 +34,21 @@ if(document.querySelector('.rating-value')){
 
 		console.log(data)
 
-		fetch('api/makeReview', {
-			method: 'PUT',
-			headers: { 'Content-Type': 'application/json' },
+		fetch('/api/makeReview', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			},
 			body: JSON.stringify(data)
 		})
-		.then(response => response.json())
-		.then(data => {
-			console.log('Success:', data);
-		})
-		.catch((error) => {
-			console.log('Error111:', error);
-		});
+			.then(response => response.json())
+			.then(data => {
+				console.log('Success:', data);
+			})
+			.catch((error) => {
+				console.log('Error111:', error);
+			});
 	}));
 }
 
