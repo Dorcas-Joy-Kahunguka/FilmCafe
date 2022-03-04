@@ -35,6 +35,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 
 Route::put('makeReview', function(Request $request, $id) {
+    // print request body
+    print_r($request->all());
+    
     $film = Film::findOrFail($id);
     $film->update($request->all());
 

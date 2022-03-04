@@ -14,41 +14,40 @@ $(window).on('load', function () { // makes sure the whole site is loaded
 	}
 })
 
-const ratingValue = document.querySelector('.rating-value').innerHTML;
-const reviewsValue = document.querySelector('.reviews-value').innerHTML;
-const ratingStars = Array.from(document.querySelectorAll('.rating-star'));
-const submitRatingStars = Array.from(document.querySelectorAll('.s-rating-star'));
+if(document.querySelector('.rating-value')){
+	const ratingValue = document.querySelector('.rating-value').innerHTML;
+	const ratingStars = Array.from(document.querySelectorAll('.rating-star'));
+	const submitRatingStars = Array.from(document.querySelectorAll('.s-rating-star'));
 
+	console.log(ratingValue)
 
-console.log(ratingValue)
-
-for(i = 0; i < ratingValue; i++) {
-	ratingStars[i].classList.remove('ion-ios-star-outline');
-	ratingStars[i].classList.add('ion-ios-star');
-}
-
-submitRatingStars.forEach(star => star.addEventListener('click', (e) => {
-	const data = {
-		rating: e.target.dataset.value,
-		id: document.querySelector('.watch-title').dataset.id
+	for(i = 0; i < ratingValue; i++) {
+		ratingStars[i].classList.remove('ion-ios-star-outline');
+		ratingStars[i].classList.add('ion-ios-star');
 	}
 
-	console.log(data)
+	submitRatingStars.forEach(star => star.addEventListener('click', (e) => {
+		const data = {
+			rating: e.target.dataset.value,
+			id: document.querySelector('.watch-title').dataset.id
+		}
 
-	fetch('/makeReview', {
-		method: 'PUT',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify(data)
-	})
-	.then(response => response.json())
-	.then(data => {
-		console.log('Success:', data);
-	})
-	.catch((error) => {
-		console.log('Error111:', error);
-	});
-}));
+		console.log(data)
 
+		fetch('api/makeReview', {
+			method: 'PUT',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(data)
+		})
+		.then(response => response.json())
+		.then(data => {
+			console.log('Success:', data);
+		})
+		.catch((error) => {
+			console.log('Error111:', error);
+		});
+	}));
+}
 
 $(function () {
 	'use strict';
