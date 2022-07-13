@@ -4,7 +4,7 @@
 <head>
 
     <!-- Basic need -->
-    <title>OnlyFilm | My Films</title>
+    <title>FilmCafe | My Films</title>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">

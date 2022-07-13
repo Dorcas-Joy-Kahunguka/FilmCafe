@@ -6,7 +6,7 @@
 <head>
 
     <!-- Basic need -->
-    <title>Open Pediatrics</title>
+    <title>FilmCafe</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="">
