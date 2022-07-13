@@ -283,7 +283,7 @@
                     <ul class="nav navbar-nav flex-child-menu menu-right">
 
                         @if(auth()->user())
-                        <li class=""><a href="{{ route('my_movies') }}">My Movies</a></li>
+                        <li class=""><a href="{{ route('my_movies') }}">My Films</a></li>
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -304,7 +304,7 @@
             <form class="search-form" method="POST" action="{{ route('home') }}">
                 @csrf
                 <div class="top-search">
-                    <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">
+                    <input type="text" name="search_word" placeholder="Search for a film or a TV Show">
                 </div>
                 <input class="normal-btn" type="submit" value="Search">
             </form>
@@ -342,7 +342,6 @@
                     <div class="movie-img sticky-sb">
                         <img src="{{$film->thumbnail_path}}" alt="">
                         <div class="movie-btn">
-
                             <div class="btn-transform transform-vertical red">
                                 <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch</a>
                                 </div>
@@ -354,7 +353,6 @@
                                     </a>
                                 </div>
                             </div>
-
                             <div class="btn-transform transform-vertical">
                                 <div>
                                     <!-- <a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a> -->
