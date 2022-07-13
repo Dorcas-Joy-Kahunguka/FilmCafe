@@ -290,7 +290,7 @@
                     <ul class="nav navbar-nav flex-child-menu menu-right">
 
                         @if(auth()->user())
-                        <li class=""><a href="{{ route('my_movies') }}">My Movies</a></li>
+                        <li class=""><a href="{{ route('my_movies') }}">My Films</a></li>
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -312,7 +312,7 @@
             <form class="search-form" method="POST" action="{{ route('home') }}">
                 @csrf
                 <div class="top-search">
-                    <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">
+                    <input type="text" name="search_word" placeholder="Search for a film or a TV Show">
                 </div>
                 <input class="normal-btn" type="submit" value="Search">
             </form>
@@ -378,7 +378,7 @@
                                 <h6><a href="{{ route('movie_single', ['film' => $film] ) }}">{{$film->title}}</a></h6>
                                 <p class="rate">
                                     <!-- <i class="ion-android-star"></i> -->
-                                    <span>8.1</span> /10
+                                    <span>{{$film->rating}}</span> /10
                                 </p>
                             </div>
                         </div>
