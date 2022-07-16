@@ -36,4 +36,12 @@ class Film extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Get the comments for the film.
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }

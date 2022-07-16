@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Comment;
 use App\Models\Film;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,20 @@ Route::post('makeReview', function(Request $request) {
 
     // return $film;
     return response()->json($film, 200);
+    
+});
+
+Route::post('postComment', function(Request $request) {
+    
+    $id = $request->film_id;
+    $comment = $request->comment;
+
+    Comment::create([
+        'text' => $comment,
+        'film_id' => $id
+    ]);
+    
+    return response()->json(['film_id' => $id, 'comment' => $comment], 200);
     
 });
 

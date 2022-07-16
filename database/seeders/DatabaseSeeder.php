@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             
-            TagsSeeder::class,
             UserSeeder::class,
+            TagsSeeder::class,
             FilmsSeeder::class,
            
         ]);

@@ -27,6 +27,24 @@
     <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <style>
+    .search-form {
+        padding-top: 10px;
+    }
+
+    .top-search input {
+        height: 46px;
+        border: none;
+        background-color: #233a50 !important;
+        font-family: 'Nunito', sans-serif;
+        font-size: #abb7c4;
+        color: #abb7c4;
+        font-weight: 300;
+        text-transform: none;
+        border-radius: 3px;
+    }
+    </style>
+
 </head>
 
 <body class="watch-page">
@@ -278,10 +296,21 @@
             <div class="row watch-text">
 
                 <div class="col-md-8">
+
                     <h6 class="watch-title" data-id="{{$film->id}}">{{$film->title}}</h6>
                     <p>{{$film->description}}</p>
+
+                    <div class="search-form">
+                        <div class="top-search">
+                            <input type="text" class="comment" placeholder="Post a comment">
+                        </div>
+                        <input class="normal-btn" type="button" value="Comment" onclick="postComment()">
+                    </div>
+
                 </div>
+
                 <div class="col-md-4">
+
                     <div class="movie-rate">
 
                         <div class="rate">
@@ -304,6 +333,7 @@
                         </div>
 
                     </div>
+
                 </div>
 
             </div>

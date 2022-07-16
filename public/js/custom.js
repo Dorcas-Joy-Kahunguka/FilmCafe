@@ -52,6 +52,43 @@ if (document.querySelector('.rating-value')) {
 	}));
 }
 
+if(document.querySelector('.comment')) {
+
+	function postComment() {
+
+		const comment = document.querySelector('.comment').value
+
+		if(comment === '') {
+			return false;
+		}
+	
+		const data = {
+			film_id: document.querySelector('.watch-title').dataset.id,
+			comment: comment,
+		}
+
+		fetch('/api/postComment', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			},
+			body: JSON.stringify(data)
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log('Success:', data);
+			})
+			.catch((error) => {
+				console.log('Error111:', error);
+			});
+
+			document.querySelector('.comment').value = '';
+	
+	}
+
+}
+
 $(function () {
 	'use strict';
 	// js for dropdown menu
