@@ -16,11 +16,13 @@ class MovieController extends Controller
     {
         $owner = $film->user->name;
         $tags = $film->tags;
+        $comments = $film->comments;
 
         return view('movie_single', [
             'film' => $film,
             'owner' => $owner,
             'tags' => $tags,
+            'comments' => $comments,
         ]);
     }
 

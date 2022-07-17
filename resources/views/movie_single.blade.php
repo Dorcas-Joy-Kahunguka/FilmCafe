@@ -24,6 +24,48 @@
     <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <style>
+    .reviews-container {
+        color: #abb7c4;
+        margin-top: 20px;
+        height: 500px;
+        overflow-y: auto;
+    }
+
+    .reviews-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .review-card {
+        margin: 5px 0;
+        background-color: black;
+        padding: 10px 5px;
+        border-radius: 3px;
+    }
+
+    .anonymous-user {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
+    .anonymous-user span {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    .text-box span {
+        font-size: 14px;
+        display: inline-block;
+        margin-top: 8px;
+    }
+
+    .text-box pre {
+        white-space: pre-line;
+        margin: 0;
+    }
+    </style>
+
 </head>
 
 <body>
@@ -384,7 +426,7 @@
                         <div class="movie-rate">
                             <div class="rate">
                                 <p><span class="rating-value">{{$film->rating}}</span> /10<br>
-                                    <span class="reviews-value">{{$film->ratings}} Reviews</span>
+                                    <span class="reviews-value">{{$film->ratings}} Ratings</span>
                                 </p>
                             </div>
                             <div class="rate-star">
@@ -416,33 +458,60 @@
                                         <div class="row">
 
                                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <!-- <p>Tony Stark creates the Ultron Program to protect the world, but when
-                                                    the peacekeeping program becomes hostile, The Avengers go into
-                                                    action to try and defeat a virtually impossible enemy together.
-                                                    Earth's mightiest heroes must come together once again to protect
-                                                    the world from global extinction.</p> -->
-                                                <p>{{$film->description}}</p>
 
+                                                <p>{{$film->description}}</p>
 
                                                 <div class="sb-it">
                                                     <h6>Owner: </h6>
                                                     <p><a href="#">{{$owner}}</a></p>
                                                 </div>
+
                                                 <div class="sb-it">
                                                     <h6>Genres:</h6>
                                                     <p>
-                                                        <!-- <a href="#">Action, </a>
-                                                        <a href="#"> Sci-Fi,</a>
-                                                        <a href="#">Adventure</a> -->
                                                         @foreach($tags as $tag)
                                                         <a href="#">{{$tag->tag_name}},</a>
                                                         @endforeach
                                                     </p>
                                                 </div>
+
                                                 <div class="sb-it">
                                                     <h6>Release Date:</h6>
-                                                    <!-- <p>May 1, 2015 (U.S.A)</p> -->
                                                     <p>{{date('g:ia \o\n l jS F Y', strtotime($film->created_at))}}</p>
+                                                </div>
+
+                                                <div class="sb-it">
+
+                                                    <h6>Reviews:</h6>
+
+                                                    <div class="reviews-container">
+
+                                                        @foreach($comments as $key => $comment)
+                                                        <div class="review-card">
+
+                                                            <div class="anonymous-user">
+                                                                <svg width="35" fill="#dd003f"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    viewBox="0 0 496 512">
+                                                                    <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+                                                                    <path
+                                                                        d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z" />
+                                                                </svg>
+                                                                <span>Anonymous User {{++$key}}</span>
+                                                            </div>
+
+                                                            <div class="text-box">
+                                                                <span>{{date('F j,Y', strtotime($comment->created_at))}}</span>
+                                                                <div class="text">
+                                                                    <pre>{{$comment->text}}</pre>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        @endforeach
+
+                                                    </div>
+
                                                 </div>
 
                                             </div>
