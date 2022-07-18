@@ -6,7 +6,7 @@
 <head>
 
     <!-- Basic need -->
-    <title>OnlyFilm | Library</title>
+    <title>FilmCafe | Library</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -290,6 +290,7 @@
                     <ul class="nav navbar-nav flex-child-menu menu-right">
 
                         @if(auth()->user())
+                        <li class=""><a href="{{ route('my_movies') }}">My Films</a></li>
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -308,10 +309,10 @@
             </nav>
 
             <!-- top search form -->
-            <form method="POST" action="{{ route('home') }}">
+            <form class="search-form" method="POST" action="{{ route('home') }}">
                 @csrf
                 <div class="top-search">
-                    <input type="text" name="search_word" placeholder="Search for a movie or a TV Show">
+                    <input type="text" name="search_word" placeholder="Search for a film or a TV Show">
                 </div>
                 <input class="normal-btn" type="submit" value="Search">
             </form>
@@ -345,7 +346,7 @@
 
                     <div class="topbar-filter fw">
                         <p>Found <span>{{$film_count}}</span> in total</p>
-                        <label>Sort by:</label>
+                        <!-- <label>Sort by:</label>
                         <select>
                             <option value="popularity">Popularity Descending</option>
                             <option value="popularity">Popularity Ascending</option>
@@ -353,7 +354,7 @@
                             <option value="rating">Rating Ascending</option>
                             <option value="date">Release date Descending</option>
                             <option value="date">Release date Ascending</option>
-                        </select>
+                        </select> -->
                         <!-- <a href="#" class="list"><i class="ion-ios-list-outline "></i></a> -->
                         <a title="Show all" href="{{ route('home') }}" class="grid"><i class="ion-grid active"></i></a>
                     </div>
@@ -377,7 +378,7 @@
                                 <h6><a href="{{ route('movie_single', ['film' => $film] ) }}">{{$film->title}}</a></h6>
                                 <p class="rate">
                                     <!-- <i class="ion-android-star"></i> -->
-                                    <span>8.1</span> /10
+                                    <span>{{$film->rating}}</span> /10
                                 </p>
                             </div>
                         </div>

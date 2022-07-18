@@ -18,16 +18,21 @@ use App\Http\Controllers\WatchFilmController;
 */
 
 // Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/my_movies', [HomeController::class, 'index'])->middleware(['auth'])->name('home');
+Route::get('/my_movies', [HomeController::class, 'index'])->middleware(['auth'])->name('my_movies');
+Route::post('/my_movies', [HomeController::class, 'search']);
 
 // Route::get('/movie_grid_fw', [FilmController::class, 'index'])->name('movie_grid_fw');
 Route::get('/', [FilmController::class, 'index'])->name('home');
 
-Route::post('/movie_grid_fw', [FilmController::class, 'search']);
+Route::post('/', [FilmController::class, 'search']);
 
 Route::get('/movie_single/{film}', [MovieController::class, 'index'])->name('movie_single');
 
 Route::get('/watch/{film}', [WatchFilmController::class, 'index'])->name('watch');
+
+Route::post('/store_film', [FilmController::class, 'store'])
+                ->middleware('auth')
+                ->name('store_film');
 
 Route::get('/404', function () {
     return view('404');
@@ -41,9 +46,5 @@ Route::get('/welcome', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-Route::post('/store_film', [FilmController::class, 'store'])
-                ->middleware('auth')
-                ->name('store_film');
 
 require __DIR__.'/auth.php';

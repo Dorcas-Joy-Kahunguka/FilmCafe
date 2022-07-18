@@ -15,6 +15,8 @@ class Film extends Model
         'file_path',
         'thumbnail_path',
         'user_id',
+        'rating',
+        'ratings',
     ];
 
     /**
@@ -32,6 +34,14 @@ class Film extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the comments for the film.
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
 }

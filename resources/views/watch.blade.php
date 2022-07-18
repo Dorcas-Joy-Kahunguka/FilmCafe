@@ -6,12 +6,14 @@
 <head>
 
     <!-- Basic need -->
-    <title>OnlyFilm | Watch</title>
+    <title>FilmCafe | Watch</title>
 
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <link rel="profile" href="#">
 
     <!--Google Font-->
@@ -24,6 +26,24 @@
     <!-- CSS files -->
     <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <style>
+    .search-form {
+        padding-top: 10px;
+    }
+
+    .top-search input {
+        height: 46px;
+        border: none;
+        background-color: #233a50 !important;
+        font-family: 'Nunito', sans-serif;
+        font-size: #abb7c4;
+        color: #abb7c4;
+        font-weight: 300;
+        text-transform: none;
+        border-radius: 3px;
+    }
+    </style>
 
 </head>
 
@@ -240,9 +260,10 @@
 
                         @if(auth()->user())
                         <li class=""><a href="#">Signed in as <?php echo auth()->user()->name ?></a></li>
+
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <li class=""><button class="button" type="submit">Log Out</button></li>
+                            <li class=""><button class="button normal-btn" type="submit">Log Out</button></li>
                         </form>
                         @else
                         <li class="loginLink"><a href="#">LOG In</a></li>
@@ -276,20 +297,42 @@
 
                 <div class="col-md-8">
 
-                    <!-- <h6>StivoSimpoBwuoy</h6>
-
-                    <p>film description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure quibusdam,
-                        voluptatum illo aperiam vitae provident voluptates unde sunt tempora explicabo, consequatur
-                        cupiditate ratione inventore, architecto harum veritatis! Odio eum numquam optio dolore eligendi
-                        dolorem id odit deserunt ab, suscipit rerum error aperiam, modi et enim aliquam ad pariatur
-                        ullam nemo quod atque molestiae quasi aliquid cum. Tempora qui facilis consequuntur, corrupti
-                        magni temporibus omnis delectus quod molestiae atque unde vitae laborum eaque ex animi sed.
-                        Laboriosam veritatis rerum distinctio, explicabo fugiat facere odio maiores, cumque ipsum
-                        quibusdam eius dolore aut quisquam sit delectus saepe, adipisci animi ut aspernatur reiciendis?
-                    </p> -->
-                    <h6>{{$film->title}}</h6>
-
+                    <h6 class="watch-title" data-id="{{$film->id}}">{{$film->title}}</h6>
                     <p>{{$film->description}}</p>
+
+                    <div class="search-form">
+                        <div class="top-search">
+                            <input type="text" class="comment" placeholder="Post a comment">
+                        </div>
+                        <input class="normal-btn" type="button" value="Comment" onclick="postComment()">
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="movie-rate">
+
+                        <div class="rate">
+                            <h6 class="rating-value">{{$film->rating}}/10<h6>
+                                    <p class="reviews-value">{{$film->ratings}} Reviews</p>
+                        </div>
+
+                        <div class="rate-star">
+                            <p>Rate This Movie: </p>
+                            <i data-value="1" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="2" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="3" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="4" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="5" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="6" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="7" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="8" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="9" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                            <i data-value="10" class="s-rating-star rating-star ion-ios-star-outline"></i>
+                        </div>
+
+                    </div>
 
                 </div>
 

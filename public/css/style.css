@@ -5976,8 +5976,8 @@ ul {
   padding: 18px;
   display: flex;
   flex-direction: column;
-  background-color: #07101a;
-  border: 3px solid #0c1c2c;
+  /* background-color: #07101a; */
+  /* border: 3px solid #0c1c2c; */
 }
 .movie-single .movie-img .movie-btn a,
 .movie-single .mv-ceb .movie-btn a {
@@ -8343,7 +8343,7 @@ footer.full-width-ft .ft-copyright {
 }
 
 .watch-text{
-  padding: 2em 0 0;
+  padding: 2em 0;
 }
 
 .watch-text *{
@@ -8353,10 +8353,11 @@ footer.full-width-ft .ft-copyright {
 
 .watch-text h6{
   font-size: 2em;
+  margin: .25em 0;
 }
 
 .watch-text p{
-  padding: 1em 0 0;
+  margin-bottom: 0;
 }
 
 .logo-txt{
@@ -8389,3 +8390,7 @@ footer.full-width-ft .ft-copyright {
 .top-search .new-btn{
   border-radius: 3px;
 }
+
+.login-wrapper .login-content>.row{
+  display: none
+  }
