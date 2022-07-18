@@ -89,6 +89,39 @@ if(document.querySelector('.comment')) {
 
 }
 
+// speech-to-text search
+const recognition = new window.webkitSpeechRecognition();
+const microphone = document.querySelector('.speech-search');
+
+// register event listener on microphone logo
+if(microphone) microphone.addEventListener('click', s2t);
+
+recognition.onresult = function (event) {
+	console.log(event)
+	let saidText = "";
+	for (let i = event.resultIndex; i < event.results.length; i++) {
+		if (event.results[i].isFinal) {
+		saidText = event.results[i][0].transcript;
+		} else {
+		saidText += event.results[i][0].transcript;
+		}
+	}
+	// capitalize the first letter
+	saidText = `${saidText.charAt(0).toUpperCase()}${saidText.slice(1)}`;
+	// enter translated text
+	document.querySelector(".top-search > input").value = saidText ;
+	recognition.stop();
+};
+
+recognition.onend = function (event) {
+	setTimeout(() => microphone.classList.remove("speaking"), 1200);
+};
+
+function s2t() {
+	recognition.start()
+	microphone.classList.add("speaking");
+}
+
 $(function () {
 	'use strict';
 	// js for dropdown menu

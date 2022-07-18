@@ -3581,6 +3581,7 @@ html {
   /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #020d18;
 }
 *,
 *:before,
@@ -4335,6 +4336,7 @@ ul {
   margin-right: 23px;
 }
 .movie-item-style-1 img {
+  height: 160px;
   margin-right: 0;
   margin-bottom: 15px;
 }
@@ -5654,11 +5656,12 @@ ul {
   content: '';
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  /* background-color: rgba(0, 0, 0, 0.75); */
 }
 /*movie single hero*/
 .mv-single-hero {
-  background: url('../images/uploads/hero-bg.jpg') no-repeat;
+  /* background: url('../images/uploads/hero-bg.jpg') no-repeat; */
+  background-color: #020d18;
   height: 598px;
 }
 /*series single hero*/
@@ -7918,7 +7921,6 @@ header .top-search {
   display: -ms-flexbox;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -8379,6 +8381,8 @@ footer.full-width-ft .ft-copyright {
 }
 
 .top-search{
+  justify-content: space-around;
+  gap: .5em;
   width: 100%;
   background: none;
 }
@@ -8387,10 +8391,35 @@ footer.full-width-ft .ft-copyright {
   border-radius: 3px;
 }
 
+.top-search .speech-search{
+  position: relative;
+  padding: .5em;
+  width: 50px;
+  height: 50px;
+  background-color: #dd003f;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.top-search .speech-search.speaking{
+  animation: speaking .5s cubic-bezier(0.55, 0.01, 1, 1) infinite;
+}
+
+@keyframes speaking {
+  to { transform: scale(1.1); }
+}
+
+.top-search svg{
+  fill: #fff;
+  width: 100%;
+  height: 100%;
+}
+
 .top-search .new-btn{
   border-radius: 3px;
 }
 
 .login-wrapper .login-content>.row{
   display: none
-  }
+}
