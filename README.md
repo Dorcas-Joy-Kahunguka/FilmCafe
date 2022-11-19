@@ -1,4 +1,4 @@
-## About OnlyFilm
+## About FilmCafe
 
 A platform for local producers and script writers to sell their films online to audiences both in and outside of Kenya.
 
